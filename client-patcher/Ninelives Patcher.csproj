@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net8.0</TargetFramework>
+		<RootNamespace>Ninelives_Patcher</RootNamespace>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+
+		<PublishSingleFile>true</PublishSingleFile>
+		<!-- Package as a single file -->
+		<SelfContained>true</SelfContained>
+		
+		<!-- Switch on when contained <PublishTrimmed>true</PublishTrimmed>-->
+		<IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+		<AssemblyName>0x44Nine - Patcher</AssemblyName>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Remove="PatchedDll\Assembly-UnityScript.dll" />
+		<None Remove="PatchedDll\UnityEngine.dll" />
+	</ItemGroup>
+
+
+	<ItemGroup>
+		<EmbeddedResource Include="PatchedDll\Assembly-UnityScript.dll" />
+		<EmbeddedResource Include="PatchedDll\UnityEngine.dll" />
+	</ItemGroup>
+
+
+</Project>

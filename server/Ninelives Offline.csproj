@@ -1,0 +1,50 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net8.0-windows</TargetFramework>
+		<RootNamespace>Ninelives_Offline</RootNamespace>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<StartupObject>Ninelives_Offline.Program</StartupObject>
+
+		<!-- Set SelfContained to true for a self-contained executable -->
+		<SelfContained>true</SelfContained>
+
+		<!-- Set PublishSingleFile to true to bundle everything into a single .exe -->
+		<PublishSingleFile>true</PublishSingleFile>
+
+		<!-- Enable/disable trimming to reduce the size by removing unused code. breaks Newtonsoft.Json -->
+		<PublishTrimmed>false</PublishTrimmed>
+
+		<!-- Enable Ahead of Time (AOT) compilation to improve startup performance. breaks Newtonsoft.Json -->
+		<!--<PublishAot>true</PublishAot>-->
+
+		<!-- Enable/Disable ReadyToRun for this configuration to avoid potential issues -->
+		<PublishReadyToRun>false</PublishReadyToRun>
+
+		<!-- Optionally include native libraries for self-extraction -->
+		<IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+
+		<AssemblyName>0x44Nine - Server</AssemblyName>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <None Remove="Data\drop_data.json" />
+	  <None Remove="Data\shop_data.json" />
+	  <None Remove="Data\VendorData.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Include="Data\drop_data.json" />
+	  <EmbeddedResource Include="Data\shop_data.json" />
+	  <EmbeddedResource Include="Data\VendorData.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<!-- Include necessary package references -->
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+		<PackageReference Include="System.Data.SQLite" Version="1.0.119" />
+	</ItemGroup>
+
+</Project>

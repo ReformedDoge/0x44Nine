@@ -1,0 +1,22 @@
+# Ignore build results
+bin/
+obj/
+
+# Ignore user-specific files
+*.user
+*.suo
+
+# Ignore logs and temporary files
+*.log
+*.tmp
+
+# Ignore publish artifacts
+**/publish/
+
+# Ignore NuGet packages
+*.nupkg
+
+# Ignore VS Code and Rider settings
+.vscode/
+.idea/
+.vs
