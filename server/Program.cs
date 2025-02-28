@@ -22,8 +22,9 @@ namespace Ninelives_Offline
 
             using var listener = new HttpListener();
             listener.Prefixes.Add("http://localhost:8080/kyrill/");
+            listener.Prefixes.Add("http://path.smokymonkeys.com:8080/kyrill/");
             listener.Start();
-            Console.WriteLine("Server is listening on http://localhost:8080/kyrill/");
+            Console.WriteLine("Server is listening on http://localhost:8080/kyrill/ and http://path.smokymonkeys.com:8080/kyrill/");
 
             await ListenForRequestsAsync(listener, requestHandler);
         }
